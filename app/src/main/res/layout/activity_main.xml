@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -12,10 +13,47 @@
     android:orientation="vertical">
 
     <com.ipalma.loaderlib.LoaderTextView
-        android:id="@+id/text"
+        android:id="@+id/txt_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"/>
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:width_weight="0.5"
+        app:loader_color="@color/loading_dark_grey"/>
+
+    <com.ipalma.loaderlib.LoaderTextView
+        android:id="@+id/txt_name2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        app:height_weight="0.8"
+        app:width_weight="0.6"
+        app:loader_color="@color/loading_grey"/>
+
+    <com.ipalma.loaderlib.LoaderTextView
+        android:id="@+id/txt_name3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        app:use_gradient="true"
+        app:height_weight="0.8"
+        app:width_weight="0.6" />
+
+    <com.ipalma.loaderlib.LoaderImageView
+        android:id="@+id/image_icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:loader_color="@color/loading_green" />
+
+    <com.ipalma.loaderlib.LoaderCircleImageView
+        android:id="@+id/image_icon2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        app:loader_color="@color/loading_green" />
 
     <Button
         android:layout_width="wrap_content"

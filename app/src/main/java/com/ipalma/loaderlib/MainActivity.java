@@ -1,34 +1,47 @@
 package com.ipalma.loaderlib;
 
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textView;
+    private static final int WAIT_DURATION = 3500;
+    private Handler handler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textView = (TextView) findViewById(R.id.text);
+        handler = new Handler();
         loadText();
     }
 
     private void loadText() {
-        textView.postDelayed(new Runnable() {
+        handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                textView.setText("Hello Loading!!!");
+                ((TextView)findViewById(R.id.txt_name)).setText("Test Name text");
+                ((TextView)findViewById(R.id.txt_name2)).setText("Test Name text 2");
+                ((TextView)findViewById(R.id.txt_name3)).setText("Test Name text 3");
+                ((ImageView)findViewById(R.id.image_icon)).setImageResource(R.mipmap.ic_launcher);
+                ((ImageView)findViewById(R.id.image_icon2)).setImageResource(R.mipmap.ic_launcher);
             }
-        }, 3500);
+        }, WAIT_DURATION);
+
     }
 
     public void reset(View v) {
-        ((LoaderTextView) textView).resetLoader();
+        handler.removeCallbacksAndMessages(null);
+        ((LoaderTextView)findViewById(R.id.txt_name)).resetLoader();
+        ((LoaderTextView)findViewById(R.id.txt_name2)).resetLoader();
+        ((LoaderTextView)findViewById(R.id.txt_name3)).resetLoader();
+        ((LoaderImageView)findViewById(R.id.image_icon)).resetLoader();
+        ((LoaderCircleImageView)findViewById(R.id.image_icon2)).resetLoader();
         loadText();
     }
 }
